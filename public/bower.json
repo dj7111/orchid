@@ -1,0 +1,20 @@
+{
+  "name": "orchid",
+  "homepage": "https://github.com/dj7111/orchid",
+  "authors": [
+    "dj7111 <hdouglasjames@hotmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.3"
+  }
+}
