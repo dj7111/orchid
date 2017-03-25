@@ -6,7 +6,7 @@
 <h1>Orchid</h1>
 <hr>
 <div ng-controller="orchidListController">
-    <input type="number" ng-value="orchidSearchId"/>
+    <input type="number" ng-model="orchidSearchId"/>
     <button ng-click="ctrl.search(orchidSearchId)">Search</button>
     <button ng-click="ctrl.loadAll()">All</button>
     <hr>
