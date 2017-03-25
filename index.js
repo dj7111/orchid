@@ -31,9 +31,6 @@ orm.connect("mysql://root:ddd@localhost/orchid_2017", function (err, db) {
     var express = require('express')
     var app = express()
     app.use(express.static('public'));
-    app.get('/', function (req, res) {
-      res.send('Hello World')
-    })
     app.get('/orchids/:id', function (req, res) {
         var id = req.params.id;
         if(id == "all") {
@@ -45,7 +42,7 @@ orm.connect("mysql://root:ddd@localhost/orchid_2017", function (err, db) {
                        res.send(orchids);
                    });
         }
-    })
+    });
     app.listen(3000)
     //
 

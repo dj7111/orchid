@@ -1,0 +1,26 @@
+<html>
+<head>
+
+</head>
+<body ng-app="orchidApp">
+<h1>Orchid</h1>
+<hr>
+<div ng-controller="orchidListController">
+    <input type="number" ng-value="orchidSearchId"/>
+    <button ng-click="ctrl.search(orchidSearchId)">Search</button>
+    <button ng-click="ctrl.loadAll()">All</button>
+    <hr>
+    <table>
+        <tr ng-repeat="O in orchids track by $index">
+            <td>{{O.id}}</td>
+            <td>{{O.genus}}</td>
+            <td>{{O.species}}</td>
+        </tr>
+    </table>
+</div>
+</body>
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="js/main.js"/>
+</script>
+<script src="js/orchid_list_controller.js"/></script>
+</html>
