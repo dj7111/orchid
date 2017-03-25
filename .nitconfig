@@ -1,0 +1,23 @@
+{
+    "projectKey": "DEFAULT_PROJECT_KEY",
+    "jira": {
+        "host": "???",
+        "boardName": "???",
+        "sprintVelocityJQL": "project={{projectKey}} AND Sprint='{{sprintName}}' AND status=Accepted",
+        "issuesInSprintWithStatusJQL": "project={{projectKey}} AND Sprint='{{sprintName}}' AND status='{{status}}'",
+        "statuses": [
+            "Ready For Development",
+            "Under Development",
+            "Blocked",
+            "Pull Requested",
+            "Accepted"
+        ]
+    },
+    "featureBranchPrefix": "feature/",
+    "nerver": {
+        "team": {
+            "host": "localhost",
+            "port": 9100
+        }
+    }
+}
