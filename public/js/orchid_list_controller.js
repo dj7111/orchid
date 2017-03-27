@@ -26,6 +26,9 @@ app.controller('orchidListController', ['$scope', 'dataRetriever',
                   for(K in offerings) {
                      offerings[K].vendor = $scope.findVendorById(offerings[K].vendorId);
                   }
+                  offerings.sort(function(a, b){
+                     return a.cost<=b ? -1 : 1;
+                  });
                   $scope.orchids[J].offerings = offerings;
                }
             }
