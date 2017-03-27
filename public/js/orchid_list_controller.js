@@ -1,36 +1,12 @@
-app.controller('orchidListController', ['$scope','$http',function($scope, $http){
-   $scope.ctrl = new OrchidListController(app.url, $scope, $http);
+app.controller('orchidListController', ['$scope', 'dataRetriever',
+                  function($scope, dataRetriever){
+   $scope.dataRetriever = dataRetriever;
+   $scope.orchids = [];
    $scope.orchidSearchId = 1;
+   $scope.searchOrchidById = function(id) {
+      $scope.dataRetriever.search(id, "orchid", function(data){
+         $scope.orchids = data;
+      });
+   };
 }]);
 
-function OrchidListController(url, $scope, $http) {
-    this.url = url;
-    this.$scope = $scope;
-    this.$http = $http;
-
-    this.search = function(id) {
-        var self = this;
-        self.get("orchids/"+id, function(status, data) {
-            self.$scope.orchids = data;
-        });
-    };
-
-    this.loadAll = function() {
-        var self = this;
-        self.get("orchids/all", function(status, data) {
-            self.$scope.orchids = data;
-        });
-    };
-
-    this.get = function(endPoint, cb) {
-        $http({
-          method: 'GET',
-          url: this.url + "/" + endPoint
-        }).then(function successCallback(response) {
-            cb && cb(response.status, response.data);
-          }, function errorCallback(response) {
-            console.log("GET error", response.status, response);
-            cb && cb(response.status, response.data);
-          });
-    };
-}

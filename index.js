@@ -1,17 +1,5 @@
-//var Orchid = require(__dirname + "/lib/model/orchid.js");
-//
-//var dbResult = require(__dirname + "/g.js");
-//var orchids = [];
-//for(var i=0; i<dbResult.length; i++) {
-//    var o = new Orchid(dbResult[i][0], dbResult[i][1]);
-//    orchids.push(o);
-//}
-//
-//for(var i=0; i<orchids.length; i++) {
-//    console.log(orchids[i].flickrSearchUrl());
-//}
 
-
+var port = 3000;
 var orm = require("orm");
 
 orm.connect("mysql://root:ddd@localhost/orchid_2017", function (err, db) {
@@ -31,7 +19,7 @@ orm.connect("mysql://root:ddd@localhost/orchid_2017", function (err, db) {
     var express = require('express')
     var app = express()
     app.use(express.static('public'));
-    app.get('/orchids/:id', function (req, res) {
+    app.get('/orchid/:id', function (req, res) {
         var id = req.params.id;
         if(id == "all") {
             orchidRepo.all(function(err, orchids){
@@ -43,7 +31,8 @@ orm.connect("mysql://root:ddd@localhost/orchid_2017", function (err, db) {
                    });
         }
     });
-    app.listen(3000)
+    app.listen(port);
+    console.log("Running server on port:", port);
     //
 
 

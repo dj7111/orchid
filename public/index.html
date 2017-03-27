@@ -7,8 +7,8 @@
 <hr>
 <div ng-controller="orchidListController">
     <input type="number" ng-model="orchidSearchId"/>
-    <button ng-click="ctrl.search(orchidSearchId)">Search</button>
-    <button ng-click="ctrl.loadAll()">All</button>
+    <button ng-click="searchOrchidById(orchidSearchId)">Search</button>
+    <button ng-click="searchOrchidById('all')">All</button>
     <hr>
     <table>
         <tr ng-repeat="O in orchids track by $index">
@@ -20,7 +20,7 @@
 </div>
 </body>
 <script src="bower_components/angular/angular.min.js"></script>
-<script src="js/main.js"/>
-</script>
-<script src="js/orchid_list_controller.js"/></script>
+<script src="js/main.js"></script>
+<script src="js/factory/data_retriever.js"></script>
+<script src="js/orchid_list_controller.js"></script>
 </html>
