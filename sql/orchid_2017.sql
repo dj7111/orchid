@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 27, 2017 at 04:34 PM
+-- Generation Time: Mar 27, 2017 at 04:45 PM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.19
 
@@ -66,10 +66,10 @@ CREATE TABLE IF NOT EXISTS `offering` (
 --
 
 INSERT INTO `offering` (`id`, `orchidId`, `vendorId`, `cost`) VALUES
-(2, 3, 1, 20),
+(2, 3, 3, 20),
 (3, 3, 2, 15),
-(4, 5, 1, 10),
-(5, 6, 1, 25);
+(4, 5, 4, 10),
+(5, 6, 4, 25);
 
 -- --------------------------------------------------------
 

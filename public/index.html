@@ -16,7 +16,7 @@
             <th>Id</th>
             <th>Genus</th>
             <th>Species</th>
-            <th>Offerings (USD/vendorId)</th>
+            <th>Offerings (Cost - Vendor</th>
             </thead>
             <tr ng-repeat="O in orchids track by $index">
                 <td>{{O.id}}</td>
@@ -24,7 +24,7 @@
                 <td>{{O.species}}</td>
                 <td>
                     <div ng-repeat="offering in O.offerings track by $index">
-                        ${{offering.cost}}/{{offering.vendorId}}
+                        ${{offering.cost}}USD - {{offering.vendor.name}}/{{offering.vendor.country}}
                     </div>
                 </td>
             </tr>
