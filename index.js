@@ -13,23 +13,18 @@ orm.connect("mysql://root:ddd@localhost/orchid_2017", function (err, db) {
      db.sync(function(err) {
             if (err) throw err;
     });
-    var orchidRepo = new require(__dirname + "/lib/repos/orchid_repo.js")(db, tableObjects.orchid);
-
     //
-    var express = require('express')
-    var app = express()
+    var dataRetriever = new require(__dirname + "/lib/data_retriever.js")();
+    //
+    var express = require('express');
+    var app = express();
     app.use(express.static('public'));
-    app.get('/orchid/:id', function (req, res) {
+    app.get('/:table/:id', function (req, res) {
         var id = req.params.id;
-        if(id == "all") {
-            orchidRepo.all(function(err, orchids){
-                res.send(orchids);
-            });
-        } else {
-            orchidRepo.getById(id, function(err, orchids){
-                       res.send(orchids);
-                   });
-        }
+        var table = req.params.table;
+        dataRetriever.getById(tableObjects[table], id, function(results){
+            res.send(results);
+        });
     });
     app.listen(port);
     console.log("Running server on port:", port);
@@ -40,3 +35,4 @@ orm.connect("mysql://root:ddd@localhost/orchid_2017", function (err, db) {
 
 
 });
+
