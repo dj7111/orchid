@@ -3,16 +3,23 @@ function DataRetriever(app, $http) {
     this.url = app.url;
     this.$http = $http;
 
-    this.search = function(id, table, cb) {
+    this.findOfferingsByOrchidId = function(id, cb) {
         var self = this;
-        self.get(table+"/"+id, function(status, data) {
+        self.get("api/1.0/find/offerings/byOrchidId/" + id, function(status, data) {
             cb && cb(data);
         });
     };
 
-    this.all = function(table, cb) {
+    this.getById = function(id, table, cb) {
         var self = this;
-        self.get(table + "/all", function(status, data) {
+        self.get("api/1.0/get/" + table + "/" + id, function(status, data) {
+            cb && cb(data);
+        });
+    };
+
+    this.get = function(table, cb) {
+        var self = this;
+        self.get("api/1.0/get/" + table + "/all", function(status, data) {
             cb && cb(data);
         });
     };
