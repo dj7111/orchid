@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 25, 2017 at 04:44 PM
+-- Generation Time: Mar 27, 2017 at 04:34 PM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.19
 
@@ -66,10 +66,10 @@ CREATE TABLE IF NOT EXISTS `offering` (
 --
 
 INSERT INTO `offering` (`id`, `orchidId`, `vendorId`, `cost`) VALUES
-(2, 1, 1, 20),
-(3, 2, 2, 15),
-(4, 3, 1, 10),
-(5, 4, 1, 25);
+(2, 3, 1, 20),
+(3, 3, 2, 15),
+(4, 5, 1, 10),
+(5, 6, 1, 25);
 
 -- --------------------------------------------------------
 
@@ -92,8 +92,6 @@ CREATE TABLE IF NOT EXISTS `orchid` (
 --
 
 INSERT INTO `orchid` (`id`, `genus`, `species`, `affinis`, `variety`, `clonal_name`) VALUES
-(1, 'genus', 'species', 0, 'variety', 'clonal_name'),
-(2, 'genus', 'species', 0, 'variety', 'clonal_name'),
 (3, 'Tuberolabium', 'quisumbingii', 0, '', ''),
 (4, 'Epidendrum', 'hugomedinae', 1, '', ''),
 (5, 'Ceratocentron', 'fesselii', 0, '', ''),
