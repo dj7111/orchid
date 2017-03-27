@@ -12,14 +12,19 @@
         <button ng-click="searchOrchidById('all')">All</button>
         <hr>
         <table class="table table-hover table-striped table-condensed">
+            <thead>
+            <th>Id</th>
+            <th>Genus</th>
+            <th>Species</th>
+            <th>Offerings (USD/vendorId)</th>
+            </thead>
             <tr ng-repeat="O in orchids track by $index">
                 <td>{{O.id}}</td>
                 <td>{{O.genus}}</td>
                 <td>{{O.species}}</td>
                 <td>
-                    Offerings (USD/vendorId):
                     <div ng-repeat="offering in O.offerings track by $index">
-                        <br>${{offering.cost}}/{{offering.vendorId}}
+                        ${{offering.cost}}/{{offering.vendorId}}
                     </div>
                 </td>
             </tr>

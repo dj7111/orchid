@@ -28,7 +28,8 @@ orm.connect("mysql://root:ddd@localhost/orchid_2017", function (err, db) {
     });
 
     app.get('/api/1.0/find/offerings/byOrchidId/:id', function (req, res) {
-        dataRetriever.getByFilter(tableObjects.offering, {orchidId:1}, function(results){
+        var orchidId = req.params.id ? req.params.id*1 : -1;
+        dataRetriever.getByFilter(tableObjects.offering, {orchidId:orchidId}, function(results){
             res.send(results);
         });
     });

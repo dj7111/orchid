@@ -1,8 +1,9 @@
+
 app.controller('orchidListController', ['$scope', 'dataRetriever',
                   function($scope, dataRetriever){
    $scope.dataRetriever = dataRetriever;
    $scope.orchids = [];
-   $scope.orchidSearchId = 1;
+   $scope.orchidSearchId = 3;
    $scope.searchOrchidById = function(id) {
       $scope.dataRetriever.getById(id, "orchid", function(orchids){
          $scope.orchids = orchids;
