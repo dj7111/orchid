@@ -1,22 +1,30 @@
 <html>
 <head>
-
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
 </head>
 <body ng-app="orchidApp">
 <h1>Orchid</h1>
 <hr>
-<div ng-controller="orchidListController">
-    <input type="number" ng-model="orchidSearchId"/>
-    <button ng-click="searchOrchidById(orchidSearchId)">Search</button>
-    <button ng-click="searchOrchidById('all')">All</button>
-    <hr>
-    <table>
-        <tr ng-repeat="O in orchids track by $index">
-            <td>{{O.id}}</td>
-            <td>{{O.genus}}</td>
-            <td>{{O.species}}</td>
-        </tr>
-    </table>
+<div class="row">
+    <div class="col-md-6" ng-controller="orchidListController">
+        <input type="number" ng-model="orchidSearchId"/>
+        <button ng-click="searchOrchidById(orchidSearchId)">Search</button>
+        <button ng-click="searchOrchidById('all')">All</button>
+        <hr>
+        <table class="table table-hover table-striped table-condensed">
+            <tr ng-repeat="O in orchids track by $index">
+                <td>{{O.id}}</td>
+                <td>{{O.genus}}</td>
+                <td>{{O.species}}</td>
+                <td>
+                    Offerings (USD/vendorId):
+                    <div ng-repeat="offering in O.offerings track by $index">
+                        <br>${{offering.cost}}/{{offering.vendorId}}
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
 </div>
 </body>
 <script src="bower_components/angular/angular.min.js"></script>

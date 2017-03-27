@@ -1,5 +1,5 @@
 {
-    "projectKey": "DEFAULT_PROJECT_KEY",
+    "projectKey": "ORCH",
     "jira": {
         "host": "???",
         "boardName": "???",
