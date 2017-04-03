@@ -5,7 +5,7 @@ function DataRetriever(app, $http) {
 
     this.findOfferingsByOrchidId = function(id, cb) {
         var self = this;
-        self.get("api/1.0/find/offerings/byOrchidId/" + id, function(status, data) {
+        self.get("api/1.0/find/offerings/orchid/" + id, function(status, data) {
             cb && cb(data);
         });
     };
